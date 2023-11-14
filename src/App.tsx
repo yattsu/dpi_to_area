@@ -15,7 +15,6 @@ function App() {
       : windowsSens < 6
       ? 1 - (6 - windowsSens) * 0.25
       : (windowsSens - 6) * 0.5 + 1;
-    console.log(windowsSens, calculatedSens);
     let tabletWidth: number = Number(
       (displayArea.width / (dpi * calculatedSens) * 25.4).toFixed(3),
     );
@@ -25,13 +24,6 @@ function App() {
 
     setTabletArea({ width: tabletWidth, height: tabletHeight });
   }, [dpi, windowsSens, displayArea]);
-
-  console.table({
-    "DPI": dpi,
-    "Windows sensitivity": windowsSens,
-    "Display Area": displayArea,
-    "Tablet Area": tabletArea,
-  });
 
   return (
     <div className="flex flex-col transition-all justify-center items-center gap-16 lg:gap-32 text-gray-300 w-full h-full">
